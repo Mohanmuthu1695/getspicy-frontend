@@ -1,0 +1,141 @@
+<section style="margin-left: 7px;">
+  <form [formGroup]="manageorderForm">
+<div class="card" style="margin-left: 5px; margin-top: 3px;" >
+    <div class="card-content">
+      <div class="left-content" style="padding-right: 360px;">
+        <h2 class="heading">Manage Order</h2>
+      </div>
+      <div class="right-content" style="padding-left: 350px;">
+        <button class="add-button"[disabled]="validateSubmitBtn()" (click)="submitAction()">Place Order</button>
+      </div>
+    </div>
+  </div>
+ 
+  <section class="container">
+    <div class="card-heading">
+      <h2>Customer Details</h2>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <div class="form-group">
+          <label for="name">Enter Name</label>
+          <input type="text" id="name" class="form-input" placeholder="Enter name" formControlName="name">
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" class="form-input" placeholder="Enter email" formControlName="email">
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="contact">Contact</label>
+          <input type="text" id="contact" class="form-input" placeholder="Enter contact" formControlName="contactNumber" />
+          <!-- Updated formControlName to match casing -->
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="payementMethod">Payement Method</label>
+          <select class="form-input" id="payementMethod" formControlName="payementMethod">
+            <option [value]="null"  selected disabled hidden>Payement Method</option>
+            <option value="cash">cash</option>
+            <option value="card">card</option>
+         
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container">
+    <div class="row">
+      <div class="col-12 card-heading">
+        <h2>Product Details</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select class="form-input" id="category" formControlName="cName"  [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
+            <option [value]="null" selected disabled hidden>Select Category</option>
+            <option value="category1" *ngFor="let category of allProduct" [value]="category.categoryName">{{ category.categoryName }}</option>
+           
+          </select>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <label for="product">Product</label>
+          <select class="form-input" id="product" formControlName="pName"  [(ngModel)]="selectedName" (change)="onNameChange()">
+            <option [value]="null" selected disabled hidden>Select Product</option>
+            <option value="product1" *ngFor="let product of filteredProducts" [value]="product.name">{{ product.name }}</option>
+           
+          </select>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="number" class="form-input" id="price" [readonly]="true" [(ngModel)]="selectedPrice" placeholder="Price" formControlName="price" />
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input type="number" class="form-input" id="quantity" placeholder="Quantity" formControlName="quantity" />
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-group">
+          <label for="total">Total</label>
+          <input type="number" class="form-input" id="total" ([ngModel])="totalvalue" [value]="manageorderForm.controls['total'].value" placeholder="Total" formControlName="total" />
+        </div>
+      </div>
+      
+    </div>
+    <div class="row" >
+        <div class="col-6 text-right" style="text-align: left;">
+            <button  class="green-button"[disabled]="validateProductAddBtn()" (click)="addTable()">Add</button>
+          </div>
+      <div class="col-6 text-right" style="text-align: right;">
+        <button class="total-button">Total: <span>{{ calculateTotalPrice() }}</span></button>
+      </div>
+    </div>
+  </section>
+  </form>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of dataSource">
+        <td>{{ item.name }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.total }}</td>
+        <td>
+          <button class="action-button" (click)="deleteRow(index)">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+     
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+</section>
+  
+  
+  
+  

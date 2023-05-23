@@ -1,0 +1,54 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 header" style="background-image: url(../assets/cafe/bg.png);">
+      <h2>Register</h2>
+    </div>
+  </div>
+  <form [formGroup]="signupForm" autocomplete="off">
+    <div class="row">
+      <div class="form-group col-6">
+        <label >Name</label>
+        <input type="text" class="form-control"  placeholder="Name" formControlName="username">
+        <div *ngIf="signupForm.get('username').invalid && signupForm.get('username').touched" class="error-message">
+          Name is required.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-6">
+        <label >Contact Number</label>
+        <input type="text" class="form-control" placeholder="Contact Number" formControlName="contactNumber">
+        <div *ngIf="signupForm.get('contactNumber').invalid && signupForm.get('contactNumber').touched" class="error-message">
+          Contact number should be numeric.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-6">
+        <label >Email</label>
+        <input type="text" class="form-control"  placeholder="Email" formControlName="email">
+        <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched" class="error-message">
+         hould be a valid email address.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-6">
+        <label>Password</label>
+        <input type="password" class="form-control"  placeholder="Password" formControlName="password">
+        <div *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched" class="error-message">
+          Password is required.
+        </div>
+      </div>
+    </div>
+    <div class="row" style="padding-bottom: 15px;">
+      <div class="col-6">
+        <button type="submit" class="btn" [disabled]="signupForm.invalid" (click)="onSubmit()">Submit</button>
+      
+      
+      </div>
+      
+    </div>
+  </form>
+</div>

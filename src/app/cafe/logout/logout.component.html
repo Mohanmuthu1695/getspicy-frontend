@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12 header" style="background-image: url(../assets/cafe/bg.png);">
+        <h2>GET PASSWORD</h2>
+      </div>
+    </div>
+    <form [formGroup]="updatePasswordForm" autocomplete="off">
+      <div class="row">
+        <div class="form-group col-6">
+          <label >Email</label>
+          <input type="text" class="form-control"  placeholder="EMAIL" formControlName="email">
+          <div *ngIf="updatePasswordForm.get('email').invalid && updatePasswordForm.get('email').touched" class="error-message">
+            Email is required.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-6">
+          <label >Old Password</label>
+          <input type="text" class="form-control"  placeholder="Old Password" formControlName="oldPassword">
+          <div *ngIf="updatePasswordForm.get('oldPassword').invalid && updatePasswordForm.get('oldPassword').touched" class="error-message">
+            Old Password is required.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-6">
+          <label >New Password</label>
+          <input type="text" class="form-control"  placeholder="New Password" formControlName="newPassword">
+          <div *ngIf="updatePasswordForm.get('newPassword').invalid && updatePasswordForm.get('newPassword').touched" class="error-message">
+           New Password is required.
+          </div>
+        </div>
+      </div>
+      <div class="row" style="padding-bottom: 15px;">
+        <div class="col-6">
+          <button type="submit" class="btn" [disabled]="updatePasswordForm.invalid" (click)="onsubmit()">Submit</button>
+        
+        
+        </div>
+        
+      </div>
+      </form>

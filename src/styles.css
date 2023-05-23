@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.black-snackbar{
+    background: black;
+    color:white
+}
+.gree-snackbar{
+    background: rgb(50, 206, 76);
+    color:white;
+}
+
+  
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .mat-mdc-table tbody, .mat-mdc-table tfoot, .mat-mdc-table thead, .mat-mdc-cell, .mat-mdc-footer-cell, .mat-mdc-header-row, .mat-mdc-row, .mat-mdc-footer-row, .mat-mdc-table .mat-mdc-header-cell {
+    background: inherit;
+    align-items: end;
+    text-align: center;
+}
+.mat-mdc-cell {
+  background: inherit;
+  text-align: center;
+}
+.mdc-data-table__cell {
+  box-sizing: border-box;
+  overflow: hidden;
+  /* text-align: left; */
+  text-overflow: ellipsis;
+  text-align: center;
+}
+th  .mat-mdc-table .mat-mdc-header-cell {
+  background: inherit;
+  text-transform: uppercase;
+}
+.mdc-data-table__header-cell {
+  color: rgba(0, 0, 0, 0.87);
+  text-transform: uppercase;
+  background-color: rgba(228, 153, 153, 0.822);
+}

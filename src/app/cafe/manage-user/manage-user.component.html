@@ -1,0 +1,48 @@
+<div class="card" style="margin-left: 2px; margin-top: 3px;" >
+    <div class="card-content">
+      <div class="left-content" style="padding-right: 440px;padding-left: 440px;">
+        <h2 class="heading">Manage User</h2>
+      </div>
+      
+    </div>
+  </div>
+  <div class="card" style="margin-top: 5px;margin-left: 2px;padding-bottom: 15px;">
+    <div class="card-content">
+      <div class="input-container">
+        <input matInput  (keyup)="applyFilter($event)" type="text" #input class="input-field" placeholder="Filter" style="text-align: right;padding-left: 850px;">
+      </div>
+      
+    </div>
+    </div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin-top: 10px; padding-bottom: 20px; border-radius: 20px;">
+    <!-- Define the columns -->
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef>Username</th>
+      <td mat-cell *matCellDef="let item">{{ item.username }}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let item">{{ item.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="contactNumber">
+      <th mat-header-cell *matHeaderCellDef>Contact Number</th>
+      <td mat-cell *matCellDef="let item">{{ item.contactNumber }}</td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let item" class="action-link">
+          <button mat-icon-button [color]="item.action ? 'warn' : 'primary'" (click)="changeStatus(item)">
+            <mat-icon>{{ item.action ? 'toggle_off' : 'toggle_on' }}</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      
+      
+      
+      
+  
+    <!-- Set the column definitions in the table row -->
+    <tr mat-header-row *matHeaderRowDef="['username', 'email', 'contactNumber', 'actions']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['username', 'email', 'contactNumber', 'actions']"></tr>
+  </table>
+  

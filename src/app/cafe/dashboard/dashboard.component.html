@@ -1,0 +1,41 @@
+<div class="dashboard-content-container">
+    <div class="dashboard-content">
+      <div class="card" [routerLink]="">
+        <div class="card-header">
+          <h2 class="card-heading">Category</h2>
+        </div>
+        <div class="card-content">
+       {{data?.category}}
+       <div class="card-button">
+        <button class="attractive-button" [routerLink]="'/dashboard/category'">View Category</button>
+      </div>
+        </div>
+      </div>
+  
+      <div class="card" [routerLink]="">
+        <div class="card-header">
+          <h2 class="card-heading">Products</h2>
+        </div>
+        <div class="card-content">
+          {{data?.product}}
+          <div class="card-button">
+            <button class="attractive-button" [routerLink]="'/dashboard/product'">View Product</button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="card" [routerLink]="">
+        <div class="card-header">
+          <h2 class="card-heading">Bills</h2>
+        </div>
+        <div class="card-content">
+          {{data?.bill}}
+          <div class="card-button">
+            <button class="attractive-button"[routerLink]="'/dashboard/category/bills'">View Bills</button>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  

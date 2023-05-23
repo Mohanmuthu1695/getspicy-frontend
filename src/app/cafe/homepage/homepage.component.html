@@ -1,0 +1,199 @@
+<!-- app.component.html -->
+
+<header class="navbar" style="background-image: url(../assets/cafe/bg.png);"  [class.shadow]="isScrolled">
+  <div class="navbar-left" style="padding-top: 10px;">
+    <div class="logo">
+      <span><img src="../assets/cafe/logo.png" height="40px"></span>
+      <span style="color:#3D2514;padding-left: 8px;">GET</span>
+      <b style="color:#3D2514">S<span style="color:rgb(116, 16, 16)">PICY</span></b>
+    </div>
+  </div>
+  <div class="navbar-center"  style="padding-top: 10px;">
+    <div class="search-bar">
+      <input type="text" placeholder="Search" />
+      <i class="fas fa-search" style="color:#3D2514"></i>
+    </div>
+  </div>
+  <div class="navbar-right"  style="padding-top: 10px;">
+    <div class="menu-items">
+      <div class="menu-item">
+        <img src="../assets/cafe/delivery-icon.png" class="shake-effect">
+       
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-home"  style="color:#3D2514"></i>
+       
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-phone"  style="color:#3D2514"></i>
+       
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-user" (mouseover)="showDropdownMenu()" (mouseout)="hideDropdownMenu()"></i>
+        <ul class="dropdown-menu" [class.show]="isDropdownMenuVisible">
+          <li (click)="signup()" *ngIf="tokennotExist"><i class="fas fa-user-plus"></i> Signup</li>
+          <li (click)="forgotPassword()"*ngIf="tokennotExist"><i class="fas fa-key"></i> Forgot Password</li>
+          <li (click)="login()"*ngIf="tokenExist"><i class="fas fa-sign-in-alt"></i> Login</li>
+          <li (click)="logout()" *ngIf="tokenExist1"><i class="fas fa-sign-out-alt"></i> Logout</li>
+        </ul>
+      </div>
+      
+    </div>
+   
+  </div>
+</header>
+
+  
+<section class="banner" style="height: 450px; width: 100%;">
+  <div class="banner-images" style="background-image: url(../assets/cafe/bg.png);">
+    <div class="content">
+      <h1 class="content-text">
+        <span class="special-effect">SPECIAL</span><br>
+        <span class="big-text">BURGER</span><br>
+        <span class="bordered-text">Good Time for the Great Taste</span>
+      </h1>
+     
+    </div>
+    <div class="image-container">
+      <img src="../assets/cafe/share-app.png" alt="Your Image">
+    </div>
+    <div class="reflection"></div>
+  </div>
+</section>
+
+  
+ <section class="container" style="padding-top: 40px;">
+  <div class="row">
+ 
+    
+    <div class="col-8" style="position: relative; left: 40px;">
+      <div class="card" style="width: 500px; height: 310px;">
+        <div class="front" style="position: relative;">
+          <img src="../assets/cafe/b1.png" alt="Card Image" width="500px" height="310px" (mouseover)="showDetails = true" (mouseout)="showDetails = false" />
+          <h3 class="image-title">TRY IT TODAY</h3>
+          <P class="image-titleP">MOST POPULAR</P>
+        </div>
+        <div class="back" [ngClass]="{ 'show': showDetails }" >
+          <h3>Juicy Gourmet Burger</h3>
+          <p>Indulge in our mouthwatering gourmet burger, made with premium quality beef, topped with fresh lettuce, tomatoes, onions, and your choice of cheese</p>
+          <button class="order-btn">Order Now</button>
+        </div>
+      </div>
+    </div>
+    
+    
+
+<div class="col-4" style="align-items: start;justify-content: left;text-align: left;position: relative;right:120px">
+  <div class="row"style="align-items: start;justify-content: left;padding-bottom:10px" >
+    <div class="card" style="width:350px;height: 150px;">
+      <div class="front" style="right:0px">
+        <img src="../assets/cafe/s1.png" alt="Card Image" width="350px"height="150px"(mouseover)="showDetails = true" (mouseout)="showDetails = false" />
+        <h3 class="image-titles1">TRY IT TODAY</h3>
+        <P class="image-titlePs1">MOSE FUN MORE TASTE</P>
+      </div>
+      <div class="back" [ngClass]="{ 'show': showDetails }" style="border-right: 1px solid rgb(207, 203, 203); ">
+        <h3 style="color: #000;">Delicious Crispy French Fries</h3>
+        <button class="order-btn">Order Now</button>
+      </div>
+      
+    </div>
+  </div>
+  <div class="row"style="align-items: start;justify-content: left;text-align: left;">
+    <div class="card"  style="width:350px;height: 150px;">
+      <div class="front" style="right:0px">
+        
+        <img src="../assets/cafe/s2.png" alt="Card Image" width="350px"height="150px" (mouseover)="showDetails = true" (mouseout)="showDetails = false" />
+        <h3 class="image-titles2">TRY IT TODAY</h3>
+        <P class="image-titlePs2">FRESH & CHILLI</P>
+      </div>
+      <div class="back" [ngClass]="{ 'show': showDetails }"style="border-right: 1px solid rgb(207, 203, 203);">
+        <h3>Authentic Wood-Fired Pizza</h3>
+       
+        <button class="order-btn">Order Now</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- 
+<div class="col-4">
+  <div class="card">
+    <div class="front">
+      <img src="{{ imageUrl }}" alt="Card Image" (mouseover)="showDetails = true" (mouseout)="showDetails = false" />
+    </div>
+    <div class="back" [ngClass]="{ 'show': showDetails }">
+      <h3>{{ title }}</h3>
+      <p>{{ description }}</p>
+      <button class="order-btn">Order Now</button>
+    </div>
+  </div>
+</div> -->
+
+</div>
+</section>
+  <section  class="container" style="padding-top: 60px;">
+    
+<div class="row">
+  <div class="section-header text-center">
+    <h5 class="section-label label">Always Tasty Burger</h5>
+    <h2 class="section-title">Choose &amp; Enjoy</h2>
+    <p class="section-subtitle text-center">
+      Experience the flavors of Italy with our authentic wood-fired pizza. Handcrafted with a thin and crispy crust, topped with the finest ingredients, including rich tomato sauce, melted cheese, and a variety of delicious toppings. 
+    </p>
+</div>
+</div>
+      </section>
+  
+      <section class="container" style="padding-top: 50px; padding-bottom: 70px;">
+        <div class="row">
+          <div class="col-4">
+            <div class="menu-item">
+              <img src="../assets/cafe/menu_1.png" alt="menu1" class="menu-image">
+              <div class="menu-details">
+                <h3 class="menu-title">Spicy Jalapeno Burger</h3>
+                <p class="menu-content">Kick up the heat with a fiery combination of a beef patty, jalapeno peppers, pepper jack cheese, spicy mayo, lettuce, and tomato</p>
+                <button class="order-button">Order Now</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="menu-item">
+              <img src="../assets/cafe/menu_2.png" alt="menu2" class="menu-image">
+              <div class="menu-details">
+                <h3 class="menu-title">BBQ Bacon Burger</h3>
+                <p class="menu-content"> Indulge in the smoky flavors of a beef patty topped with crispy bacon, cheddar cheese, tangy barbecue sauce, lettuce, and onion rings</p>
+                <button class="order-button">Order Now</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="menu-item">
+              <img src="../assets/cafe/menu_3.png" alt="menu3" class="menu-image">
+              <div class="menu-details">
+                <h3 class="menu-title">Gourmet Truffle Burger</h3>
+                <p class="menu-content">Indulge in a gourmet experience with a juicy beef patty, truffle-infused cheese, caramelized onions, arugula, and truffle aioli</p>
+                <button class="order-button">Order Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer-banner" style="background-image: url(../assets/cafe/footer-bg.jpg); height: 400px; background-position: center; background-size: cover;">
+        <div class="overlay"></div>
+        <div class="footer-left" style="padding-top: 40px;padding-left: 20px;">
+          <img src="../assets/cafe/logo-footer.png" alt="Logo" class="footer-logo" style="bottom:8px;position: relative;padding-right: 5px;"><span style="color: white;font-weight: 600;font-size: 35px;">GET  S<span style="color:red">PICY</span></span>
+        </div>
+
+        <div class="footer-right" style="position: relative;top:90%">
+          <ul class="social-media-icons">
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+        <div class="footer-bottom" style="position: relative;top:70%">
+          <p class="company-name">© 2023 by Mohan . All rights reserved.</p>
+        </div>
+      </footer>
+      
+      

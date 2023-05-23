@@ -1,0 +1,69 @@
+<!-- dashboard.component.html -->
+
+<div class="dashboard-container">
+  <nav class="top-nav" style="background-image: url(../assets/cafe/bg.png);">
+    <div class="left-section">
+      <div class="menu-icon" (click)="toggleSideMenu()">
+        <img src="../assets/cafe/logo.png" height="40px">
+      </div>
+      <div class="logo">
+        <span style="color:#3D2514">GET </span> <b style="color:#3D2514">S<span style="color: rgb(231, 63, 22);">PICY</span></b>
+      </div>
+    </div>
+    <div class="right-section">
+      <div class="user-icon" (mouseover)="showDropdownMenu()" (mouseout)="hideDropdownMenu()">
+        <i class="fas fa-user" style="color:#3D2514"></i>
+        <ul class="dropdown-menu" [class.show]="isDropdownMenuVisible">
+          <li [routerLink]="'/home'"><i class="fas fa-home"></i> Home</li>
+          <li (click)="changePassword()"><i class="fas fa-lock" ></i> Change Password</li>
+          <li (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="content-wrapper">
+    <div class="sidebar">
+      <ul class="menu">
+        <li class="menu-item" [routerLink]="'/dashboard'" [ngClass]="{ 'active': isActive('/dashboard') }">
+          <i class="fas fa-home"></i>
+          <span class="menu-text">Dashboard</span>
+        </li>
+      
+        <li class="menu-item"  [routerLink]="'/dashboard/category'" [ngClass]="{ 'active': isActive('/dashboard/category') }">
+          <i class="fas fa-folder"></i>
+          <span class="menu-text">Category</span>
+        </li>
+        
+        <li class="menu-item"  [routerLink]="'/dashboard/product'" [ngClass]="{ 'active': isActive('/dashboard/product') }">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="menu-text">Products</span>
+        </li>
+        
+        <li class="menu-item"  [routerLink]="'/dashboard/report'" [ngClass]="{ 'active': isActive('/dashboard/report') }">
+          <i class="fas fa-chart-bar"></i>
+          <span class="menu-text">Generate Bill</span>
+        </li>
+        <li class="menu-item" *ngIf="isAdmin" [routerLink]="'/dashboard/bill'" [ngClass]="{ 'active': isActive('/dashboard/bill') }">
+          <i class="fas fa-file-invoice"></i>
+          <span class="menu-text">View Bill</span>
+        </li>
+        
+        <li class="menu-item" *ngIf="isAdmin" [routerLink]="'/dashboard/user'" [ngClass]="{ 'active': isActive('/dashboard/user') }">
+          <i class="fas fa-users-cog"></i>
+          <span class="menu-text">Users</span>
+        </li>
+        
+      
+        
+      </ul>
+      
+      
+    </div>
+    
+    
+
+<router-outlet></router-outlet>
+  </div>
+</div>
