@@ -37,6 +37,7 @@ import { BillComponent } from './cafe/bill/bill.component';
 import { FileSaverOptions } from 'file-saver';
 import { saveAs } from 'file-saver';
 import { ViewBillProductComponent } from './cafe/view-bill-product/view-bill-product.component';
+import { LandingLoginComponent } from './cafe/landing-login/landing-login.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   fgsColor: '#FFFF00', // Set the color of the foreground spinner
@@ -72,7 +73,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ManageUserComponent,
     ReportComponent,
     BillComponent,
-    ViewBillProductComponent
+    ViewBillProductComponent,
+    LandingLoginComponent
   ],
   imports: [
     BrowserModule,
